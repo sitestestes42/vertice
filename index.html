@@ -21,6 +21,35 @@ footer{background:#262720;color:#f6f3ee;padding:45px 0 20px}.footer-main{display
 @media(max-width:1000px){.product-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:26px 15px}.hero-image{min-height:480px}.hero-copy{padding-left:0}.nav-left{gap:14px}.nav-left a:last-child{display:none}}
 @media(max-width:680px){.announcement{font-size:8px;letter-spacing:.09em}.nav{width:calc(100% - 28px);height:65px;grid-template-columns:1fr auto}.nav-left{display:none}.logo{font-size:24px}.nav-right{gap:10px}.nav-right>a{display:none}.wrap{width:calc(100% - 28px)}.hero{padding:14px 0 38px}.hero-layout{grid-template-columns:1fr;gap:0}.hero-image{min-height:420px;order:-1}.hero-copy{padding:30px 4px 10px}.hero h1{font-size:58px;margin:16px 0}.hero-copy p{font-size:11px}.actions{margin-top:20px}.btn{min-height:42px;padding:0 15px;font-size:8px}.image-label{left:13px;bottom:13px}.category-tile{padding:18px 9px;font-size:8px;letter-spacing:.06em}.category-tile span:last-child{font-size:15px}.catalog{padding:56px 0 62px}.section-head{display:block;margin-bottom:25px}.section-head h2{font-size:43px}.section-head p{margin-top:15px}.filters{gap:17px}.filter{font-size:8px}.tools{align-items:center}.search{max-width:none}.sort{max-width:100px;font-size:9px}.product-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:25px 11px}.product-image{aspect-ratio:3/4}.product-info{padding-top:10px}.product h3,.price{font-size:10px}.product-desc{font-size:9px}.quick-add{opacity:1;transform:none;height:34px;font-size:8px}.product-tag{top:7px;left:7px;padding:6px;font-size:7px}.editorial{padding-bottom:55px}.editorial-inner{grid-template-columns:1fr}.editorial-image{min-height:290px;max-height:340px}.editorial-copy{padding:30px 23px 34px}.editorial-copy h2{font-size:40px}.newsletter{padding:42px 0}.newsletter h2{font-size:31px}.footer-main{grid-template-columns:1fr 1fr;gap:25px}.footer-main>div:first-child{grid-column:1/-1}.footer-bottom{font-size:7px;line-height:1.7}.drawer{padding:19px}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition:none!important}}
+
+/* Página de detalhes do produto */
+.product-detail-overlay{position:fixed;inset:0;z-index:45;background:rgba(25,25,21,.58);display:none;align-items:center;justify-content:center;padding:22px;backdrop-filter:blur(3px)}
+.product-detail-overlay.open{display:flex}
+.product-detail{position:relative;width:min(900px,100%);max-height:min(90vh,780px);overflow:auto;background:var(--paper);display:grid;grid-template-columns:1fr 1fr;box-shadow:0 25px 80px #0003;animation:detailIn .24s ease both}
+@keyframes detailIn{from{opacity:0;transform:translateY(12px) scale(.99)}to{opacity:1;transform:translateY(0) scale(1)}}
+.detail-photo{min-height:530px;background:#e6e0d6;position:relative}.detail-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.detail-content{padding:clamp(24px,4vw,48px);display:flex;flex-direction:column;align-items:flex-start}
+.detail-close{position:absolute;right:14px;top:14px;z-index:2;width:36px;height:36px;border:1px solid var(--line);background:rgba(255,254,250,.94);font-size:21px}
+.detail-category{font-size:9px;text-transform:uppercase;letter-spacing:.16em;color:var(--accent);margin:7px 0 18px}
+.detail-title{font-family:var(--serif);font-size:clamp(31px,4vw,44px);font-weight:400;line-height:1.05;letter-spacing:-.035em;margin:0 0 12px}
+.detail-price{font-size:17px;font-weight:600;margin-bottom:18px}
+.detail-description{font-size:11px;line-height:1.9;color:var(--muted);margin:0 0 24px}
+.detail-label{display:block;font-size:9px;text-transform:uppercase;letter-spacing:.14em;margin:0 0 10px;font-weight:700}
+.size-options{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:23px}
+.size-option{min-width:39px;height:37px;border:1px solid #d7d1c7;background:transparent;font-size:10px;color:var(--ink)}
+.size-option.active{background:var(--ink);border-color:var(--ink);color:white}
+.detail-colors{display:flex;gap:9px;margin-bottom:24px}
+.detail-color{width:22px;height:22px;border-radius:50%;border:2px solid var(--paper);outline:1px solid #cfc9bf;cursor:pointer}
+.detail-color.active{outline:2px solid var(--ink)}
+.detail-quantity{display:flex;align-items:center;border:1px solid var(--line);height:42px;margin-bottom:15px}
+.detail-quantity button{height:40px;width:40px;border:0;background:transparent;font-size:17px}
+.detail-quantity span{min-width:25px;text-align:center;font-size:11px}
+.detail-add{width:100%;min-height:47px;border:0;background:var(--ink);color:white;font-size:9px;text-transform:uppercase;letter-spacing:.13em}
+.detail-add:hover{background:var(--accent-dark)}
+.detail-help{font-size:9px;color:var(--muted);line-height:1.7;margin-top:13px}
+@media(max-width:620px){.product-detail-overlay{padding:0;align-items:flex-end}.product-detail{width:100%;max-height:94vh;grid-template-columns:1fr 1fr;overflow:auto}.detail-photo{min-height:300px}.detail-content{padding:20px 15px}.detail-title{font-size:27px}.detail-category{margin:4px 0 12px}.detail-price{font-size:15px;margin-bottom:12px}.detail-description{font-size:10px;margin-bottom:15px}.size-options{gap:5px;margin-bottom:16px}.size-option{min-width:32px;height:32px}.detail-colors{margin-bottom:16px}.detail-close{right:9px;top:9px}.detail-quantity{height:36px}.detail-quantity button{height:34px;width:32px}}
+@media(max-width:390px){.product-detail{grid-template-columns:1fr}.detail-photo{min-height:260px;max-height:310px}.detail-content{padding:20px}.detail-title{font-size:32px}}
+
 </style>
 </head>
 <body>
@@ -50,6 +79,31 @@ footer{background:#262720;color:#f6f3ee;padding:45px 0 20px}.footer-main{display
 <section class="newsletter"><div class="wrap"><div class="eyebrow">Fique por dentro</div><h2>Novidades, sem excesso.</h2><p>Receba lançamentos e novidades da coleção diretamente no seu WhatsApp.</p><form class="newsletter-form" id="newsletter"><input type="tel" id="phone" placeholder="Seu WhatsApp com DDD" aria-label="Seu WhatsApp com DDD" required><button type="submit">Quero receber ↗</button></form></div></section>
 </main>
 <footer><div class="wrap"><div class="footer-main"><div><a href="#" class="footer-logo">VÉRTICE</a><p class="footer-copy">Moda contemporânea para vestir a rotina com intenção. Peças versáteis, escolhas conscientes e estilo pessoal.</p></div><div class="footer-col"><h3>Atendimento</h3><a href="#colecao">Ver coleção</a><a href="#sobre">Sobre a Vértice</a><a id="footerWhats" href="#contato">Fale com a gente</a></div><div class="footer-col"><h3>Informações</h3><p>Pedidos e disponibilidade confirmados pelo WhatsApp.</p><p id="instagram">@vertice.store</p><p id="address">São Paulo, SP</p></div></div><div class="footer-bottom"><span>© <span id="year"></span> VÉRTICE. Todos os direitos reservados.</span><span>Moda para a vida real.</span></div></div></footer>
+
+<div class="product-detail-overlay" id="productDetailOverlay" aria-hidden="true">
+ <section class="product-detail" role="dialog" aria-modal="true" aria-labelledby="detailTitle">
+  <button class="detail-close" id="detailClose" aria-label="Fechar detalhes">×</button>
+  <div class="detail-photo"><img id="detailImage" src="" alt=""></div>
+  <div class="detail-content">
+   <div class="eyebrow">VÉRTICE / DETALHES</div>
+   <div class="detail-category" id="detailCategory"></div>
+   <h2 class="detail-title" id="detailTitle"></h2>
+   <div class="detail-price" id="detailPrice"></div>
+   <p class="detail-description" id="detailDescription"></p>
+   <span class="detail-label">Tamanho</span>
+   <div class="size-options" id="detailSizes">
+    <button class="size-option" data-size="PP">PP</button><button class="size-option" data-size="P">P</button><button class="size-option active" data-size="M">M</button><button class="size-option" data-size="G">G</button><button class="size-option" data-size="GG">GG</button>
+   </div>
+   <span class="detail-label">Cor</span>
+   <div class="detail-colors" id="detailColors"></div>
+   <span class="detail-label">Quantidade</span>
+   <div class="detail-quantity"><button id="detailMinus" aria-label="Diminuir quantidade">−</button><span id="detailQty">1</span><button id="detailPlus" aria-label="Aumentar quantidade">+</button></div>
+   <button class="detail-add" id="detailAdd">Adicionar à sacola</button>
+   <div class="detail-help">As fotos e opções são demonstrativas. Confirme cores, tamanhos e disponibilidade com a loja antes da compra.</div>
+  </div>
+ </section>
+</div>
+
 <div class="drawer-overlay" id="drawerOverlay" aria-hidden="true"><aside class="drawer" role="dialog" aria-modal="true" aria-labelledby="drawerTitle"><div class="drawer-head"><h2 id="drawerTitle">Sua sacola</h2><button class="close" id="closeCart" aria-label="Fechar sacola">×</button></div><div class="cart-items" id="cartItems"></div><div class="cart-foot"><div class="total"><span>Total estimado</span><span id="cartTotal">R$ 0,00</span></div><button class="checkout" id="checkout" disabled>Continuar pelo WhatsApp ↗</button><div class="fineprint">Disponibilidade, frete e forma de pagamento serão confirmados pela loja antes da conclusão do pedido.</div></div></aside></div>
 <div class="toast" id="toast" role="status"></div>
 <script>
@@ -78,6 +132,24 @@ const PRODUCTS=[
 const money=n=>n.toLocaleString('pt-BR',{style:'currency',currency:'BRL'});let category='Todos',cart={};
 const grid=document.getElementById('productGrid'),overlay=document.getElementById('drawerOverlay');
 function applyConfig(){document.title=`${CONFIG.name} — Moda contemporânea`;document.querySelectorAll('.logo,.footer-logo').forEach(e=>e.textContent=CONFIG.name);document.getElementById('instagram').textContent=CONFIG.instagram;document.getElementById('address').textContent=CONFIG.city;document.getElementById('year').textContent=new Date().getFullYear();const link=CONFIG.whatsapp?`https://wa.me/${CONFIG.whatsapp}`:'#contato';document.getElementById('footerWhats').href=link;document.getElementById('footerWhats').onclick=e=>{if(!CONFIG.whatsapp){e.preventDefault();toast('Configure o WhatsApp da loja na URL para ativar o atendimento.')}}}
+
+let selectedDetailProduct=null, selectedDetailSize='M', selectedDetailColor=0, selectedDetailQty=1;
+const detailOverlay=document.getElementById('productDetailOverlay');
+function openProductDetail(id){
+ const p=PRODUCTS.find(x=>x.id===id);if(!p)return;selectedDetailProduct=p;selectedDetailSize='M';selectedDetailColor=0;selectedDetailQty=1;
+ document.getElementById('detailImage').src=p.image;document.getElementById('detailImage').alt=p.name;
+ document.getElementById('detailCategory').textContent=p.category;
+ document.getElementById('detailTitle').textContent=p.name;
+ document.getElementById('detailPrice').textContent=money(p.price);
+ document.getElementById('detailDescription').textContent=`${p.desc}. Uma peça versátil para combinar com seus essenciais e criar looks que acompanham sua rotina.`;
+ document.getElementById('detailQty').textContent='1';
+ document.querySelectorAll('#detailSizes .size-option').forEach(b=>b.classList.toggle('active',b.dataset.size==='M'));
+ const colors=p.color||['#ded4c3','#b7b7a4','#3c443a'];
+ document.getElementById('detailColors').innerHTML=colors.map((c,i)=>`<button class="detail-color ${i===0?'active':''}" data-color="${i}" style="background:${c}" aria-label="Selecionar cor ${i+1}" title="Cor ${i+1}"></button>`).join('');
+ detailOverlay.classList.add('open');detailOverlay.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';document.getElementById('detailClose').focus();
+}
+function closeProductDetail(){detailOverlay.classList.remove('open');detailOverlay.setAttribute('aria-hidden','true');if(!overlay.classList.contains('open'))document.body.style.overflow=''}
+
 function render(){const q=document.getElementById('search').value.trim().toLowerCase(),sort=document.getElementById('sort').value;let list=PRODUCTS.filter(p=>(category==='Todos'||p.category===category)&&`${p.name} ${p.desc} ${p.category}`.toLowerCase().includes(q));if(sort==='low')list.sort((a,b)=>a.price-b.price);if(sort==='high')list.sort((a,b)=>b.price-a.price);grid.innerHTML='';if(!list.length){grid.innerHTML='<div class="empty">Não encontramos essa peça. Tente outra busca.</div>';return}list.forEach(p=>{const el=document.createElement('article');el.className='product';el.innerHTML=`<div class="product-image"><img src="${p.image}" alt="${p.name}" loading="lazy" onerror="this.style.opacity='.15'"><span class="product-tag">${p.tag}</span><button class="quick-add" data-add="${p.id}">Adicionar à sacola ＋</button></div><div class="product-info"><div class="product-line"><h3>${p.name}</h3><span class="price">${money(p.price)}</span></div><div class="product-desc">${p.desc}</div><div class="swatches" aria-label="Cores de referência">${p.color.map(c=>`<span class="swatch" style="background:${c}"></span>`).join('')}</div></div>`;el.classList.add('reveal');el.style.setProperty('--delay',`${(grid.children.length%4)*70}ms`);grid.appendChild(el)});observeReveals(grid)}
 function toast(t){const el=document.getElementById('toast');el.textContent=t;el.classList.add('show');clearTimeout(toast.timer);toast.timer=setTimeout(()=>el.classList.remove('show'),2400)}
 function add(id){cart[id]=(cart[id]||0)+1;updateCart();toast('Peça adicionada à sacola.')}
@@ -86,8 +158,15 @@ function openCart(){overlay.classList.add('open');overlay.setAttribute('aria-hid
 function checkout(){if(!CONFIG.whatsapp){toast('Configure o WhatsApp da loja na URL antes de receber pedidos.');return}const items=PRODUCTS.filter(p=>cart[p.id]),total=items.reduce((s,p)=>s+p.price*cart[p.id],0),lines=items.map(p=>`• ${p.name} — quantidade: ${cart[p.id]} — ${money(p.price*cart[p.id])}`);const msg=`Olá, ${CONFIG.name}! Gostaria de consultar a disponibilidade destas peças:\n\n${lines.join('\n')}\n\nTotal estimado: ${money(total)}\n\nPodem confirmar tamanhos, disponibilidade e entrega?`;window.open(`https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(msg)}`,'_blank','noopener')}
 document.getElementById('filters').addEventListener('click',e=>{const b=e.target.closest('[data-category]');if(!b)return;category=b.dataset.category;document.querySelectorAll('.filter').forEach(x=>x.classList.toggle('active',x===b));render()});
 document.querySelectorAll('[data-jump]').forEach(a=>a.addEventListener('click',()=>{category=a.dataset.jump;document.querySelectorAll('.filter').forEach(x=>x.classList.toggle('active',x.dataset.category===category));render()}));
-grid.addEventListener('click',e=>{const b=e.target.closest('[data-add]');if(b)add(Number(b.dataset.add))});document.getElementById('cartItems').addEventListener('click',e=>{const b=e.target.closest('[data-qty]');if(!b)return;const id=Number(b.dataset.qty);cart[id]=(cart[id]||0)+Number(b.dataset.d);if(cart[id]<=0)delete cart[id];updateCart()});
-document.getElementById('openCart').addEventListener('click',openCart);document.getElementById('closeCart').addEventListener('click',closeCart);overlay.addEventListener('click',e=>{if(e.target===overlay)closeCart()});document.getElementById('checkout').addEventListener('click',checkout);document.addEventListener('keydown',e=>{if(e.key==='Escape')closeCart()});document.getElementById('search').addEventListener('input',render);document.getElementById('sort').addEventListener('change',render);
+grid.addEventListener('click',e=>{const b=e.target.closest('[data-add]');if(b){e.stopPropagation();add(Number(b.dataset.add));return}const card=e.target.closest('.product');if(card){const img=card.querySelector('[data-add]');if(img){const id=Number(img.dataset.add);openProductDetail(id)}}});
+document.getElementById('detailClose').addEventListener('click',closeProductDetail);
+detailOverlay.addEventListener('click',e=>{if(e.target===detailOverlay)closeProductDetail()});
+document.getElementById('detailSizes').addEventListener('click',e=>{const b=e.target.closest('[data-size]');if(!b)return;selectedDetailSize=b.dataset.size;document.querySelectorAll('#detailSizes .size-option').forEach(x=>x.classList.toggle('active',x===b))});
+document.getElementById('detailColors').addEventListener('click',e=>{const b=e.target.closest('[data-color]');if(!b)return;selectedDetailColor=Number(b.dataset.color);document.querySelectorAll('#detailColors .detail-color').forEach(x=>x.classList.toggle('active',x===b))});
+document.getElementById('detailMinus').addEventListener('click',()=>{selectedDetailQty=Math.max(1,selectedDetailQty-1);document.getElementById('detailQty').textContent=selectedDetailQty});
+document.getElementById('detailPlus').addEventListener('click',()=>{selectedDetailQty=Math.min(20,selectedDetailQty+1);document.getElementById('detailQty').textContent=selectedDetailQty});
+document.getElementById('detailAdd').addEventListener('click',()=>{if(!selectedDetailProduct)return;const key=selectedDetailProduct.id;cart[key]=(cart[key]||0)+selectedDetailQty;updateCart();closeProductDetail();toast(`${selectedDetailProduct.name} (${selectedDetailSize}) adicionada à sacola.`)});document.getElementById('cartItems').addEventListener('click',e=>{const b=e.target.closest('[data-qty]');if(!b)return;const id=Number(b.dataset.qty);cart[id]=(cart[id]||0)+Number(b.dataset.d);if(cart[id]<=0)delete cart[id];updateCart()});
+document.getElementById('openCart').addEventListener('click',openCart);document.getElementById('closeCart').addEventListener('click',closeCart);overlay.addEventListener('click',e=>{if(e.target===overlay)closeCart()});document.getElementById('checkout').addEventListener('click',checkout);document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeCart();closeProductDetail()}});document.getElementById('search').addEventListener('input',render);document.getElementById('sort').addEventListener('change',render);
 document.getElementById('newsletter').addEventListener('submit',e=>{e.preventDefault();const phone=document.getElementById('phone').value.replace(/\D/g,'');if(phone.length<10){toast('Digite um número com DDD para continuar.');return}if(!CONFIG.whatsapp){toast('Cadastro demonstrativo. Configure o WhatsApp da loja para continuar.');return}const msg=`Olá, ${CONFIG.name}! Quero receber novidades da coleção. Meu WhatsApp é ${phone}.`;window.open(`https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(msg)}`,'_blank','noopener');toast('Vamos continuar pelo WhatsApp.')});
 applyConfig();render();updateCart();
 </script>
